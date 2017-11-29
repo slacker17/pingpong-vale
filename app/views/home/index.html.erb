@@ -1,0 +1,27 @@
+<h1 class='page-header'>Leaderboard</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Games Played</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fl.each_with_index do |user, index| %>
+    <tr>
+      <td><%= (index + 1) %></td>
+      <td><%= user[0] %></td>
+      <td><%= user[1] %></td>
+      <td><%= user[2] %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--<div class="alert alert-warning" role="alert">This is a sample page.</div>
+
+<%= image_tag('leaderboard.png') %>-->

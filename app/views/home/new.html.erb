@@ -1,0 +1,19 @@
+<%= form_tag("/create", method: "post") do %>
+
+<%= label_tag(:label, "Date Played:") %>
+
+<%= select_date Date.today, prefix: :start_date %><br>
+<%= label_tag(:opponent, "Opponent:") %>
+
+<%= select_tag( :opponent_id,
+    options_for_select(User.where('id != ?', current_user.id).collect{ |user| [user.email, user.id] }),
+    :required => true ) %><br>
+
+<%= label_tag(:your_score, "Your score:") %>
+<%= number_field(:your_score, :your_score, in: 9..100.0,  :required => true) %><br>
+
+<%= label_tag(:their_score, "Their score:") %>
+<%= number_field(:their_score, :their_score, in: 9..100.0, :required => true) %><br>
+
+<%= submit_tag("Create") %>
+<% end %>

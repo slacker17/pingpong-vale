@@ -1,0 +1,34 @@
+<h1 class='page-header'>History</h1>
+<table align="center" class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Oponent</th>
+      <th>Score</th>
+      <th>result</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lista.each do |l| %>
+    <tr>
+      <td><%= l[0] %></td>
+      <td><%= l[1] %></td>
+      <td><%= "#{l[2]} - #{l[3]}" %></td>
+      <td>
+	<% if l[2] > l[3] %>
+	WON
+	<% elsif l[2] < l[3]%>
+	   LOST
+	   <% else%>
+	   EQUAL
+	   <% end%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--<div class="alert alert-warning" role="alert">This is a sample page. Replace link in the header with your own.</div>
+
+<%= image_tag('history.png') %>-->
